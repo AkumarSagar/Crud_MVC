@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Crud_MVC.Models.EMPLOYEEMASTER>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="alert alert-danger text-center">EMPLOYEE DETAILS</h2>
+
+<p class="btn-outline-info">
+    <span class="btn btn-danger"> @Html.ActionLink("Create New", "Create")</span>
+</p>
+<table class="table">
+    <tr class="alert alert-danger">
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPCODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESTINATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SALARY)
+        </th>
+        <th>
+            <h6><b>BUTTON</b></h6>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPCODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESTINATION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SALARY)
+        </td>
+        <td>
+
+            <span class="btn btn-danger">@Html.ActionLink("Edit", "Edit", new { id = item.ID })</span> |
+            <span class="btn btn-warning">@Html.ActionLink("Details", "Details", new { id = item.ID })</span>  |
+            <span class="btn btn-secondary"> @Html.ActionLink("Delete", "Delete", new { id = item.ID })</span>
+        </td>
+    </tr>
+}
+
+</table>
